@@ -31,3 +31,15 @@
 [submodule "modules/undo-tree"]
 	path = modules/undo-tree
 	url = http://www.dr-qubit.org/git/undo-tree.git
+[submodule "modules/evil-surround"]
+	path = modules/evil-surround
+	url = http://github.com/timcharper/evil-surround
+[submodule "modules/exec-path-from-shell"]
+	path = modules/exec-path-from-shell
+	url = http://github.com/purcell/exec-path-from-shell
+[submodule "modules/ag"]
+	path = modules/ag
+	url = http://github.com/Wilfred/ag.el
+[submodule "modules/s"]
+	path = modules/s
+	url = http://github.com/magnars/s.el

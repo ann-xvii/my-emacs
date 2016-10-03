@@ -6,6 +6,9 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;; it's madness to have an independent $PATH for emacs:
+(use-package exec-path-from-shell :config (exec-path-from-shell-initialize))
+
 ;; Good colors, less clutter
 (require 'solarized-dark-theme)
 (load-theme 'solarized-dark t)
@@ -18,10 +21,16 @@
 (let ((font "Menlo:pixelsize=14"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 (require 'bind-key)
 (require 'evil)
 (evil-mode 1)
+(setq-default truncate-lines t)
+(setq evil-move-cursor-back nil)
+
+(use-package evil-surround :config (global-evil-surround-mode 1))
 
 ;; Follow links, use UTC-8, don't ask me to type "yes", don't use real Tab characters
 (prefer-coding-system 'utf-8)

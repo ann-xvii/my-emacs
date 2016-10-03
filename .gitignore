@@ -3,3 +3,4 @@ savehist
 ido.last
 .places
 projectile-bookmarks.eld
+*.elc

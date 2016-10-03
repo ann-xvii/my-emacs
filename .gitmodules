@@ -1,0 +1,33 @@
+[submodule "modules/use-package"]
+	path = modules/use-package
+	url = https://github.com/jwiegley/use-package
+[submodule "modules/evil"]
+	path = modules/evil
+	url = https://github.com/anishathalye/evil
+[submodule "modules/magit"]
+	path = modules/magit
+	url = https://github.com/magit/magit
+[submodule "modules/dash"]
+	path = modules/dash
+	url = https://github.com/magnars/dash.el
+[submodule "modules/with-editor"]
+	path = modules/with-editor
+	url = https://github.com/magit/with-editor
+[submodule "modules/ace-jump-mode"]
+	path = modules/ace-jump-mode
+	url = https://github.com/winterTTr/ace-jump-mode
+[submodule "modules/solarized-emacs"]
+	path = modules/solarized-emacs
+	url = https://github.com/bbatsov/solarized-emacs
+[submodule "modules/eval-sexp-fu"]
+	path = modules/eval-sexp-fu
+	url = https://github.com/hchbaw/eval-sexp-fu.el
+[submodule "modules/projectile"]
+	path = modules/projectile
+	url = https://github.com/bbatsov/projectile
+[submodule "modules/smex"]
+	path = modules/smex
+	url = https://github.com/nonsequitur/smex
+[submodule "modules/undo-tree"]
+	path = modules/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git

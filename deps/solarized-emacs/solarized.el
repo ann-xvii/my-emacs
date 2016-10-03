@@ -1,0 +1,1 @@
+../../modules/solarized-emacs/solarized.el

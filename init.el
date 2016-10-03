@@ -1,4 +1,4 @@
-(let ((default-directory  "~/.emacs.d/modules/"))
+(let ((default-directory  "~/.emacs.d/deps/"))
   (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "~/.emacs.d/config")
 

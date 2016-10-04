@@ -5,3 +5,4 @@ ido.last
 projectile-bookmarks.eld
 *.elc
 auto-save-list
+nrepl-history

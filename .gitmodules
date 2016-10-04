@@ -79,3 +79,12 @@
 [submodule "modules/spinner"]
 	path = modules/spinner
 	url = http://github.com/Malabarba/spinner.el
+[submodule "modules/robe"]
+	path = modules/robe
+	url = https://github.com/dgutov/robe
+[submodule "modules/inf-ruby"]
+	path = modules/inf-ruby
+	url = https://github.com/nonsequitur/inf-ruby
+[submodule "modules/rvm"]
+	path = modules/rvm
+	url = https://github.com/senny/rvm.el

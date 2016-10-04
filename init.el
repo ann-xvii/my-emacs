@@ -20,3 +20,4 @@
 (load "config-clojure.el")
 (load "config-comint.el")
 (load "config-lispy.el")
+(load "config-ruby.el")

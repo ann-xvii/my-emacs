@@ -127,3 +127,6 @@
 
 ;; this allows eval with motion-commands: (might be neat for shell)
 ;; https://github.com/Dewdrops/evil-extra-operator
+
+;; useful examples of elisp?
+;; https://github.com/roman/birdseye.el

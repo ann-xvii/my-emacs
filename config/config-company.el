@@ -19,30 +19,33 @@
     ;;(define-key c-mode-map  [(tab)] 'company-complete)
     ;;(define-key c++-mode-map  [(tab)] 'company-complete)
 
-    ;(require 'cl-lib)
-    ;(require 'company)
+    ;;(require 'cl-lib)
+    ;;(require 'company)
 
-    ;(defun vmd-company-backend (command &optional arg &rest ignored)
-    ;  (interactive (list 'interactive))
+    ;;(defun vmd-company-backend (command &optional arg &rest ignored)
+    ;;  (interactive (list 'interactive))
 
-    ;  (cl-case command
-    ;    (interactive (company-begin-backend 'company-sample-backend))
-    ;    (prefix (and (eq major-mode 'fundamental-mode)
-    ;                 (company-grab-symbol)))
-    ;    (candidates
-    ;     (cl-remove-if-not
-    ;      (lambda (c) (string-prefix-p arg c))
-    ;      vmd-mode-github-emojis-list))))
+    ;;  (cl-case command
+    ;;    (interactive (company-begin-backend 'company-sample-backend))
+    ;;    (prefix (and (eq major-mode 'fundamental-mode)
+    ;;                 (company-grab-symbol)))
+    ;;    (candidates
+    ;;     (cl-remove-if-not
+    ;;      (lambda (c) (string-prefix-p arg c))
+    ;;      vmd-mode-github-emojis-list))))
 
-    ;(add-to-list 'company-backends 'vmd-company-backend)
+    ;;(add-to-list 'company-backends 'vmd-company-backend)
     
-    (defun indent-or-complete ()
-      (interactive)
-      (if (looking-at "\\_>")
-          (company-complete-common)
-        (indent-according-to-mode)))
+    ;; what was the idea here?
+    ;; (defun indent-or-complete ()
+    ;;   (interactive)
+    ;;   (if (looking-at "\\_>")
+    ;;       (company-complete-common)
+    ;;     (indent-according-to-mode)))
 
-    (global-set-key "\t" 'indent-or-complete)))
+    ;; (global-set-key "\t" 'indent-or-complete)
+
+    ))
 
 
 ;'(add-to-list 'company-backends 'company-ghc)
@@ -54,5 +57,3 @@
 
 ;;(require 'company-clang)
 ;(require 'company-c-headers)
-
-;;'(add-to-list 'company-backends 'company-robe)

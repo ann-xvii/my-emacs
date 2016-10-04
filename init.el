@@ -16,5 +16,6 @@
 (load "config-ido.el")
 (load "config-ag.el")
 (load "config-evil-matchit.el")
+(load "config-company.el")
 
 

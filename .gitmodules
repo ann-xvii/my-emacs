@@ -46,3 +46,6 @@
 [submodule "modules/evil-matchit"]
 	path = modules/evil-matchit
 	url = http://github.com/redguardtoo/evil-matchit
+[submodule "modules/company-mode"]
+	path = modules/company-mode
+	url = http://github.com/company-mode/company-mode

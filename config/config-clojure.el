@@ -1,0 +1,175 @@
+(use-package clojure-mode
+  :mode ("\\.edn$" . clojure-mode)
+  :defer 3
+  :config (message "LOADED CLOJURE MODE"))
+
+(use-package cider-eval-sexp-fu
+  :config
+  (progn
+    (defun init-sexp-fu ()
+      (turn-on-eval-sexp-fu-flash-mode))
+    (add-hook 'clojure-mode-hook #'init-sexp-fu)
+    (add-hook 'emacs-lisp-mode-hook #'init-sexp-fu)
+    ;; works even though it's commented out...?
+    (add-hook 'pixie-mode-hook #'init-sexp-fu)
+    ))
+
+
+(use-package cider
+  :init
+  (progn
+
+    ;; copied from https://github.com/otijhuis/emacs.d/blob/master/config/lisp-settings.el
+    (setq nrepl-hide-special-buffers t)
+    (setq cider-prompt-save-file-on-load 'always-save)
+
+    ;; Enable error buffer popping also in the REPL:
+    (setq cider-repl-popup-stacktraces t)
+
+    ;; auto-select the error buffer when it's displayed
+    (setq cider-auto-select-error-buffer t)
+
+    ;; Pretty print results in repl
+    ;; (setq cider-repl-use-pretty-printing t)
+    (setq cider-repl-use-pretty-printing nil)
+
+    ;; Don't prompt for project when connecting
+    (setq cider-prompt-for-project-on-connect nil)
+
+    ;; Don't prompt for symbols
+    (setq cider-prompt-for-symbol nil)
+
+    (setq cider-repl-print-length 100))
+  :config
+  (progn
+
+    (setq nrepl-sync-request-timeout 300)
+    (setq nrepl-hide-special-buffers t)
+    (setq cider-popup-stacktraces-in-repl t)
+    (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
+    (setq cider-repl-pop-to-buffer-on-connect nil)
+    (setq cider-repl-use-clojure-font-lock t)
+    ;;(setq cider-auto-select-error-buffer nil)
+    (setq cider-prompt-save-file-on-load nil)
+
+    ;; copied from https://github.com/otijhuis/emacs.d/blob/master/config/lisp-settings.el
+    (setq cider-repl-pop-to-buffer-on-connect nil) ; Prevent the auto-display of the REPL buffer in a separate window after connection is established
+    (setq cider-repl-use-clojure-font-lock t)
+    (setq cider-show-error-buffer nil)
+    (setq cider-jump-to-compilation-error nil)
+    (setq cider-auto-jump-to-error nil)
+    (add-to-list 'same-window-buffer-names "*cider-repl localhost*")
+    ;; FIXME use :bind
+    (define-key clojure-mode-map (kbd "s-e") 'cider-enlighten-mode)
+    (define-key cider-inspector-mode-map (kbd "s-[") 'cider-inspector-pop)
+    (define-key cider-inspector-mode-map (kbd "s-]") 'cider-inspector-push)
+    (define-key cider-inspector-mode-map (kbd "s-n") 'cider-inspector-next-page)
+    (define-key cider-inspector-mode-map (kbd "s-p") 'cider-inspector-prev-page)
+    (define-key cider-inspector-mode-map (kbd "s-SPC")      'cider-inspector-operate-on-point)
+    (define-key cider-inspector-mode-map (kbd "<s-return>") 'cider-inspector-operate-on-point)
+    (define-key cider-inspector-mode-map (kbd "s-j") 'cider-inspector-next-inspectable-object)
+    (define-key cider-inspector-mode-map (kbd "s-k") 'cider-inspector-previous-inspectable-object)
+
+    (define-key clojure-mode-map (kbd "s-]"     ) 'cider-find-var)
+    (define-key clojure-mode-map (kbd "s-["     ) 'cider-pop-back)
+    (define-key clojure-mode-map (kbd "s-m"     ) 'cider-macroexpand-1-inplace)
+
+
+    ;(define-key clojure-mode-map (kbd "s-="   ) 'align-cljlet)
+    ;; wtf does this even do? if I redefine the macro and run it, it doesn't pick up the change...
+    ;; (define-key cider-macroexpansion-mode (kbd "s-m"     ) 'cider-macroexpand-again)
+    ;;  upcoming? in cider master...
+    ;; (define-key clojure-mode-map (kbd "s-m s-m"     ) 'cider-macroexpand-1-inplace)
+    ;; (define-key clojure-mode-map (kbd "s-m s-k"     ) 'cider-macroexpand-all-inplace)
+
+
+
+    ;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+    (add-hook 'cider-repl-mode-hook 'subword-mode)
+
+    (setq cider-macroexpansion-print-metadata t ) 
+    (define-key clojure-mode-map (kbd "s-d"   ) 'cider-pprint-eval-defun-at-point)
+    (define-key clojure-mode-map (kbd "s-\\"    ) 'cider-eval-defun-at-point)
+    (define-key clojure-mode-map (kbd "s-|"     ) 'cider-debug-defun-at-point)
+    (define-key clojure-mode-map (kbd "s-n"     ) 'cider-eval-ns-form)
+    (define-key clojure-mode-map (kbd "s-b"     ) 'cider-eval-buffer)
+    (define-key clojure-mode-map (kbd "s-j"     ) 'lispy-eval-and-comment)
+    (define-key clojure-mode-map (kbd "s-k"     ) 'lispy-eval-and-replace)
+    (define-key clojure-mode-map (kbd "s-m"     ) 'lispy-alt-multiline)
+    (define-key clojure-mode-map (kbd "s-r"     ) 'cider-eval-region) 
+    (define-key clojure-mode-map (kbd "s-h"     ) 'cider-eval-print-handler) 
+    (define-key clojure-mode-map (kbd "s-l"     ) 'cider-eval-print-last-sexp) 
+    ;; (define-key clojure-mode-map (kbd "s-t"     ) 'cider-eval-last-sexp-and-replace)
+    (define-key clojure-mode-map (kbd "s-i s-r"   ) 'cider-inspect-last-result)
+    (define-key clojure-mode-map (kbd "s-i s-s"   ) 'cider-inspect-last-sexp)
+
+    (define-key clojurescript-mode-map "s-SPC" 'cider-jack-in-clojurescript)
+    (define-key clojure-mode-map       "s-SPC" 'cider-jack-in)
+
+    ;(evil-leader/set-key-for-mode 'clojure-mode "cnf" 'cider-browse-ns )
+    ;(evil-leader/set-key-for-mode 'clojure-mode "cna" 'cider-browse-ns-all )
+    ;(evil-leader/set-key-for-mode 'clojure-mode "cnc" 'cider-browse-ns-current-ns )
+    ;(evil-leader/set-key-for-mode 'clojure-mode "cd" 'cider-grimoire)
+    ;(evil-leader/set-key-for-mode 'clojure-mode "cD" 'cider-grimoire-web)
+    ;(evil-leader/set-key-for-mode 'clojure-mode "cJ" 'cider-javadoc)
+
+    (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+
+    ;; I find it extremely annoying to have exceptions take over a frame with this buffer so I shut it off:
+    (setq cider-show-error-buffer nil)
+
+    (add-hook 'clojure-mode-hook #'(lambda ()
+                                     (modify-syntax-entry ?_ "w")
+                                     (modify-syntax-entry ?- "w")
+                                     (modify-syntax-entry ?> "w")))
+    (global-set-key [f9] 'cider-jack-in)
+    (global-set-key [f8] 'prettify-symbols-mode)
+
+    ;; cool Georgian chars:
+    ;; ა ბ გ დ ე ვ ზ თ ი კ ლ მ ნ ო პ
+    ;; ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ
+    ;; ხ ჯ ჰ ჱ ჲ ჳ ჴ ჵ ჶ ჷ ჸ ჹ ჺ
+
+    ;; there's Greek, Lao, Arabic
+    
+
+    (setq clojure--prettify-symbols-alist
+          '(("fn"         . ?λ )
+            ("comp"       . ?∘ )
+            ("filter"     . ?Ƒ )
+            ("not="       . ?≠ )
+            ("some"       . ?∃ )
+            ("none?"      . ?∄ )
+            ("map"        . ?∀ )
+            ("true"       . ?𝐓 )
+            ("false"      . ?𝐅 )
+            ("cons"       . ?« )
+            ("and"        . ?∧ )
+            ("or"         . ?∨ )
+            ("<="         . ?≤ )
+            (">="         . ?≥ )
+            ("partial"    . ?⋈ )
+            ("loop"       . ?◎ )
+            ("recur"      . ?◉ )
+            ("reduce"     . ?∑ )
+            ("chan"       . ?≋ )
+            ("complement" . ?∁ )
+            ("identical?" . ?≡ )
+            ;;("->" . ?→)
+            ;;("->>" . ?⇒)
+            ;;("<!" . ?⪡) ;; wtf happened here? same font Menlo-Regular.ttf, doesn't have these unicode chars on my new workstation
+            ;;(">!" . ?⪢ )
+            ;;("<!!" . ?⫷ )
+            ;;(">!!" . ?⫸ )
+            ;;("" . ?◉ )
+            ;;("" . ?⧬ )
+            ;;("" . ?⧲ )
+            ;;("" . ?⚇ )
+            ;;("" . ?◍ )
+            ;;⟅ ⟆ ⦓ ⦔ ⦕ ⦖ ⸦ ⸧ ⸨ ⸩ ｟ ｠ ⧘ ⧙ ⧚ ⧛ ︷ ︸
+            ;;∾ ⊺ ⋔ ⫚ ⟊ ⟔ ⟓ ⟡ ⟢ ⟣ ⟤ ⟥
+            ;;      ("" . ? )
+            ))
+
+    ))
+

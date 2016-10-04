@@ -9,6 +9,8 @@
 ;; it's madness to have an independent $PATH for emacs:
 (use-package exec-path-from-shell :config (exec-path-from-shell-initialize))
 
+(use-package hydra)
+
 ;; Good colors, less clutter
 (require 'solarized-dark-theme)
 (load-theme 'solarized-dark t)
@@ -117,3 +119,12 @@
 ;; https://github.com/jwiegley/use-package
 ;; https://github.com/noctuid/vertigo.el
 ;; also this basics file is growing unwieldy
+
+;; alternative ace-jump: https://github.com/hlissner/evil-snipe and https://github.com/bling/evil-jumper
+;; the latter says evil itself includes this, but it's not evil-jump-forward...
+;; but just discovered that jump-to-register is a thing, I should learn it
+
+;; this looks kinda like lispy for C ... https://github.com/wcsmith/evil-args
+
+;; this allows eval with motion-commands: (might be neat for shell)
+;; https://github.com/Dewdrops/evil-extra-operator

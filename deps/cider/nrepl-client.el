@@ -1,0 +1,1 @@
+../../modules/cider/nrepl-client.el

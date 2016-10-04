@@ -49,3 +49,33 @@
 [submodule "modules/company-mode"]
 	path = modules/company-mode
 	url = http://github.com/company-mode/company-mode
+[submodule "modules/lispy"]
+	path = modules/lispy
+	url = http://github.com/abo-abo/lispy
+[submodule "modules/clojure-mode"]
+	path = modules/clojure-mode
+	url = http://github.com/clojure-emacs/clojure-mode
+[submodule "modules/cider"]
+	path = modules/cider
+	url = http://github.com/clojure-emacs/cider
+[submodule "modules/clj-refactor"]
+	path = modules/clj-refactor
+	url = http://github.com/clojure-emacs/clj-refactor.el
+[submodule "modules/cider-eval-sexp-fu"]
+	path = modules/cider-eval-sexp-fu
+	url = http://github.com/clojure-emacs/cider-eval-sexp-fu
+[submodule "modules/avy"]
+	path = modules/avy
+	url = http://github.com/abo-abo/avy
+[submodule "modules/iedit"]
+	path = modules/iedit
+	url = http://github.com/victorhge/iedit
+[submodule "modules/swiper"]
+	path = modules/swiper
+	url = http://github.com/abo-abo/swiper
+[submodule "modules/hydra"]
+	path = modules/hydra
+	url = http://github.com/abo-abo/hydra
+[submodule "modules/spinner"]
+	path = modules/spinner
+	url = http://github.com/Malabarba/spinner.el

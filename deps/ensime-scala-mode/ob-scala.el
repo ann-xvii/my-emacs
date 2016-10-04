@@ -1,0 +1,1 @@
+../../modules/ensime-scala-mode/ob-scala.el

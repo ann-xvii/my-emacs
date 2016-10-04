@@ -18,6 +18,7 @@
 (load "config-evil-matchit.el")
 (load "config-company.el")
 (load "config-clojure.el")
+(load "config-scala.el")
 (load "config-comint.el")
 (load "config-lispy.el")
 (load "config-ruby.el")

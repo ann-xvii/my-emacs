@@ -1,0 +1,1 @@
+../../modules/ensime-scala-mode/scala-mode-paragraph.el

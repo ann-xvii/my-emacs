@@ -88,3 +88,15 @@
 [submodule "modules/rvm"]
 	path = modules/rvm
 	url = https://github.com/senny/rvm.el
+[submodule "modules/ensime-scala-mode"]
+	path = modules/ensime-scala-mode
+	url = https://github.com/ensime/emacs-scala-mode
+[submodule "modules/ensime-emacs"]
+	path = modules/ensime-emacs
+	url = https://github.com/ensime/ensime-emacs
+[submodule "modules/popup-el"]
+	path = modules/popup
+	url = https://github.com/auto-complete/popup-el
+[submodule "modules/sbt-mode"]
+	path = modules/sbt-mode
+	url = https://github.com/ensime/emacs-sbt-mode

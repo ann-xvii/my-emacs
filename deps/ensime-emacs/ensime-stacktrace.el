@@ -1,0 +1,1 @@
+../../modules/ensime-emacs/ensime-stacktrace.el

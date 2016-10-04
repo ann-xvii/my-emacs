@@ -19,8 +19,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-;; FIXME find a better font
-(let ((font "Menlo:pixelsize=14"))
+(let ((font "Inconsolata:pixelsize=16"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
 (global-set-key (kbd "C-+") 'text-scale-increase)

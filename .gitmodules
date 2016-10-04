@@ -43,3 +43,6 @@
 [submodule "modules/s"]
 	path = modules/s
 	url = http://github.com/magnars/s.el
+[submodule "modules/evil-matchit"]
+	path = modules/evil-matchit
+	url = http://github.com/redguardtoo/evil-matchit

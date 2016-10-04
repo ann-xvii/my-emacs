@@ -104,5 +104,5 @@
 
 ;(add-hook 'messages-buffer-mode-hook #'(lambda () (evil-mode)) t)
 
-;; magit is handled separately in evil-magit.el
+; modes that should _start_ in motion-state
 (setq evil-motion-state-modes '(debugger-mode apropos-mode Buffer-menu-mode calendar-mode color-theme-mode command-history-mode compilation-mode dictionary-mode ert-results-mode help-mode Info-mode Man-mode speedbar-mode undo-tree-visualizer-mode view-mode woman-mode))

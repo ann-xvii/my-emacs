@@ -1,5 +1,7 @@
 (use-package undo-tree
 
+  :bind ("s-u" . undo-tree-visualize)
+
   :commands undo-tree-visualize
   
   :config

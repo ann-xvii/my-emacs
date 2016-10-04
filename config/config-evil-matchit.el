@@ -1,5 +1,7 @@
 (use-package evil-matchit
 
+  :defer 4
+
   :config
   (global-evil-matchit-mode 1))
 

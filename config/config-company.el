@@ -2,6 +2,8 @@
 
 (use-package company
 
+  :defer 4
+
   :config
   (progn
     (global-company-mode)

@@ -30,7 +30,7 @@
 (setq-default truncate-lines t)
 (setq evil-move-cursor-back nil)
 
-(use-package evil-surround :config (global-evil-surround-mode 1))
+(use-package evil-surround :config (global-evil-surround-mode 1) :defer 3)
 
 ;; Follow links, use UTC-8, don't ask me to type "yes", don't use real Tab characters
 (prefer-coding-system 'utf-8)
@@ -106,3 +106,14 @@
 
 ; modes that should _start_ in motion-state
 (setq evil-motion-state-modes '(debugger-mode apropos-mode Buffer-menu-mode calendar-mode color-theme-mode command-history-mode compilation-mode dictionary-mode ert-results-mode help-mode Info-mode Man-mode speedbar-mode undo-tree-visualizer-mode view-mode woman-mode))
+
+
+
+
+
+;; TODO
+;; learn...
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Controlling-Active-Maps.html
+;; https://github.com/jwiegley/use-package
+;; https://github.com/noctuid/vertigo.el
+;; also this basics file is growing unwieldy

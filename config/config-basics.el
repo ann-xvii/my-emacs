@@ -109,6 +109,11 @@
 (setq evil-motion-state-modes '(debugger-mode apropos-mode Buffer-menu-mode calendar-mode color-theme-mode command-history-mode compilation-mode dictionary-mode ert-results-mode help-mode Info-mode Man-mode speedbar-mode undo-tree-visualizer-mode view-mode woman-mode))
 
 
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome"
+      browse-url-generic-args '( "--incognito" ))
+(define-key evil-motion-state-map ",,b" 'browse-url-at-point)
+
 
 
 

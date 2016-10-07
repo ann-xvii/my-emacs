@@ -114,6 +114,14 @@
       browse-url-generic-args '( "--incognito" ))
 (define-key evil-motion-state-map ",,b" 'browse-url-at-point)
 
+(use-package aggressive-indent
+  :demand t
+  :config
+  (progn
+    (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+    ;; (add-hook 'css-mode-hook #'aggressive-indent-mode)
+    ))
+
 
 
 

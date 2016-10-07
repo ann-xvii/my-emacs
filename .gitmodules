@@ -100,3 +100,6 @@
 [submodule "modules/sbt-mode"]
 	path = modules/sbt-mode
 	url = https://github.com/ensime/emacs-sbt-mode
+[submodule "modules/aggressive-indent-mode"]
+	path = modules/aggressive-indent-mode
+	url = https://github.com/Malabarba/aggressive-indent-mode

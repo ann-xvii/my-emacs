@@ -1,7 +1,9 @@
 (use-package clojure-mode
   :mode ("\\.edn$" . clojure-mode)
   :defer 3
-  :config (message "LOADED CLOJURE MODE"))
+  :config
+  (progn (message "LOADED CLOJURE MODE")
+         (add-hook 'clojure-mode-hook #'aggressive-indent-mode)))
 
 (use-package cider-eval-sexp-fu
   :config
@@ -43,6 +45,14 @@
   :config
   (progn
 
+    (defun nrepl-reset ()
+      (interactive)
+      (save-some-buffers)
+      (set-buffer "*cider-repl localhost*")
+      (goto-char (point-max))
+      (insert "(user/reset)")
+      (nrepl-return))
+
     (setq nrepl-sync-request-timeout 300)
     (setq nrepl-hide-special-buffers t)
     (setq cider-popup-stacktraces-in-repl t)
@@ -73,9 +83,10 @@
     (define-key clojure-mode-map (kbd "s-]"     ) 'cider-find-var)
     (define-key clojure-mode-map (kbd "s-["     ) 'cider-pop-back)
     (define-key clojure-mode-map (kbd "s-m"     ) 'cider-macroexpand-1-inplace)
+    (define-key cider-repl-mode-map (kbd "s-SPC") 'cider-repl-clear-buffer)
 
 
-    ;(define-key clojure-mode-map (kbd "s-="   ) 'align-cljlet)
+    ;;(define-key clojure-mode-map (kbd "s-="   ) 'align-cljlet)
     ;; wtf does this even do? if I redefine the macro and run it, it doesn't pick up the change...
     ;; (define-key cider-macroexpansion-mode (kbd "s-m"     ) 'cider-macroexpand-again)
     ;;  upcoming? in cider master...
@@ -84,7 +95,7 @@
 
 
 
-    ;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+    ;;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
     (add-hook 'cider-repl-mode-hook 'subword-mode)
 
     (setq cider-macroexpansion-print-metadata t ) 
@@ -106,12 +117,12 @@
     (define-key clojurescript-mode-map "s-SPC" 'cider-jack-in-clojurescript)
     (define-key clojure-mode-map       "s-SPC" 'cider-jack-in)
 
-    ;(evil-leader/set-key-for-mode 'clojure-mode "cnf" 'cider-browse-ns )
-    ;(evil-leader/set-key-for-mode 'clojure-mode "cna" 'cider-browse-ns-all )
-    ;(evil-leader/set-key-for-mode 'clojure-mode "cnc" 'cider-browse-ns-current-ns )
-    ;(evil-leader/set-key-for-mode 'clojure-mode "cd" 'cider-grimoire)
-    ;(evil-leader/set-key-for-mode 'clojure-mode "cD" 'cider-grimoire-web)
-    ;(evil-leader/set-key-for-mode 'clojure-mode "cJ" 'cider-javadoc)
+    ;;(evil-leader/set-key-for-mode 'clojure-mode "cnf" 'cider-browse-ns )
+    ;;(evil-leader/set-key-for-mode 'clojure-mode "cna" 'cider-browse-ns-all )
+    ;;(evil-leader/set-key-for-mode 'clojure-mode "cnc" 'cider-browse-ns-current-ns )
+    ;;(evil-leader/set-key-for-mode 'clojure-mode "cd" 'cider-grimoire)
+    ;;(evil-leader/set-key-for-mode 'clojure-mode "cD" 'cider-grimoire-web)
+    ;;(evil-leader/set-key-for-mode 'clojure-mode "cJ" 'cider-javadoc)
 
     (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 

@@ -103,3 +103,6 @@
 [submodule "modules/aggressive-indent-mode"]
 	path = modules/aggressive-indent-mode
 	url = https://github.com/Malabarba/aggressive-indent-mode
+[submodule "modules/github-browse-file"]
+	path = modules/github-browse-file
+	url = https://github.com/osener/github-browse-file

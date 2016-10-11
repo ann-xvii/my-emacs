@@ -8,9 +8,7 @@
          (",g,c" . magit-quick-commit)
 
          :map magit-blame-mode-map
-         (",gb" . magit-blame-locate-commit)
-
-         )
+         (",gb" . magit-blame-locate-commit))
 
   :init
   (progn
@@ -29,11 +27,14 @@
 
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ;; silence the warning that buffers out of sync with the index will be auto-reverted
-    (setq magit-last-seen-setup-instructions "1.4.0"))
+    (setq magit-last-seen-setup-instructions "1.4.0")))
 
- ;:config
- ;(progn
- ;  (set-evil-magit-bindings))
-  )
-
-
+(use-package github-browse-file
+  :bind (:map evil-normal-state-map
+         (",gho" . github-browse-file-non-incog))
+  :init
+  (progn
+    (defun github-browse-file-non-incog ()
+      (interactive)
+      (let ((browse-url-generic-args nil))
+        (github-browse-file)))))

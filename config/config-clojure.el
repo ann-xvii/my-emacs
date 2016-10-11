@@ -84,6 +84,8 @@
     (define-key clojure-mode-map (kbd "s-["     ) 'cider-pop-back)
     (define-key clojure-mode-map (kbd "s-m"     ) 'cider-macroexpand-1-inplace)
     (define-key cider-repl-mode-map (kbd "s-SPC") 'cider-repl-clear-buffer)
+    (define-key clojure-mode-map (kbd "s-o") 'cider-pprint-eval-last-sexp)
+
 
 
     ;;(define-key clojure-mode-map (kbd "s-="   ) 'align-cljlet)

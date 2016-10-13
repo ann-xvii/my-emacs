@@ -1,5 +1,6 @@
 (use-package clojure-mode
-  :mode ("\\.edn$" . clojure-mode)
+  ;; :mode ("\\.edn$" . clojure-mode)
+  :mode ("\\.clj$" . clojure-mode)
   :defer 3
   :config
   (progn (message "LOADED CLOJURE MODE")
@@ -16,8 +17,15 @@
     (add-hook 'pixie-mode-hook #'init-sexp-fu)
     ))
 
+(use-package cider-macroexpansion
+
+  :bind (:map clojure-mode-map
+              ("s-m" . cider-macroexpand-1-inplace))
+  :config (message "Loaded cider macroexpansion"))
 
 (use-package cider
+  :bind (:map evil-normal-state-map
+              (",cc" . cider-connect))
   :init
   (progn
 

@@ -30,8 +30,9 @@
     (setq magit-last-seen-setup-instructions "1.4.0")))
 
 (use-package github-browse-file
+  :demand t
   :bind (:map evil-normal-state-map
-         (",gho" . github-browse-file-non-incog))
+              (",gho" . github-browse-file-non-incog))
   :init
   (progn
     (defun github-browse-file-non-incog ()

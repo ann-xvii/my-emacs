@@ -1,6 +1,6 @@
 (use-package lispy
 
-  :demand t  ;; is there a better way? I want it to load with clojure-mode...
+  ;;:demand t  ;; is there a better way? I want it to load with clojure-mode...
   ;; https://github.com/jwiegley/use-package
 
   :bind (:map clojure-mode-map

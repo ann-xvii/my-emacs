@@ -112,3 +112,6 @@
 [submodule "modules/inf-mongo"]
 	path = modules/inf-mongo
 	url = git@github.com:endofunky/inf-mongo
+[submodule "modules/yasnippet"]
+	path = modules/yasnippet
+	url = git@github.com:joaotavora/yasnippet.git

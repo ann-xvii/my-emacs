@@ -23,3 +23,5 @@
 (load "config-lispy.el")
 (load "config-ruby.el")
 (load "config-mongo.el")
+(load "config-yasnippet.el")
+

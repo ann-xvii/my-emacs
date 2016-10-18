@@ -58,6 +58,13 @@
   :config
   (progn
 
+    (bind-keys :map clojure-mode-map
+               ("s-/" . lispy-describe-inline)
+               ("s-." . lispy-arglist-inline)
+               ("s-j" . lispy-eval-and-comment)
+               ("s-k" . lispy-eval-and-replace)
+               ("s-m" . lispy-alt-multiline))
+
     (defun nrepl-reset ()
       (interactive)
       (save-some-buffers)

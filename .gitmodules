@@ -58,9 +58,6 @@
 [submodule "modules/cider"]
 	path = modules/cider
 	url = http://github.com/clojure-emacs/cider
-[submodule "modules/clj-refactor"]
-	path = modules/clj-refactor
-	url = http://github.com/clojure-emacs/clj-refactor.el
 [submodule "modules/cider-eval-sexp-fu"]
 	path = modules/cider-eval-sexp-fu
 	url = http://github.com/clojure-emacs/cider-eval-sexp-fu

@@ -7,7 +7,7 @@
 
 (use-package ensime
 
-  :bind (("s-\\ s-r" . ensime)
+  :bind (("s-\\ s-]" . ensime)
          :map ensime-mode-map
          ("s-\\ s-r"   . ensime-reload)
          ("s-\\ s-SPC" . ensime-inf-switch)
@@ -19,10 +19,13 @@
          ("s-e"        . ensime-stacktrace-switch)
          ("s-\\ s-SPC" . ensime-stacktrace-highlight)
          ("s-\\ s-s"   . hs-show-block)
-         ("s-\\ s-a"   . hs-show-all))
+         ("s-\\ s-a"   . hs-show-all)
+         ([tab] . company-complete))
 
   :config
   (progn
+    (define-key ensime-mode-map (kbd "<tab>") 'company-complete)
+
     (message "Starting Scala interpreter...")
     (ensime-inf-switch)))
 

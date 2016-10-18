@@ -143,3 +143,11 @@
 
 ;; useful examples of elisp?
 ;; https://github.com/roman/birdseye.el
+
+(use-package yaml-mode
+  :mode ("\\.yaml$" . yaml-mode)
+  :config
+  (progn
+    (add-hook 'yaml-mode-hook
+              (lambda ()
+                (define-key yaml-mode-map "\C-m" 'newline-and-indent)))))

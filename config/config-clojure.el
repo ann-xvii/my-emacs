@@ -4,7 +4,11 @@
   :defer 3
   :config
   (progn (message "LOADED CLOJURE MODE")
-         (add-hook 'clojure-mode-hook #'aggressive-indent-mode)))
+         (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+         (add-hook 'clojure-mode-hook #'(lambda ()
+                                          (modify-syntax-entry ?_ "w")
+                                          (modify-syntax-entry ?- "w")
+                                          (modify-syntax-entry ?> "w")))))
 
 (use-package cider-eval-sexp-fu
   :config
@@ -139,10 +143,7 @@
     ;; I find it extremely annoying to have exceptions take over a frame with this buffer so I shut it off:
     (setq cider-show-error-buffer nil)
 
-    (add-hook 'clojure-mode-hook #'(lambda ()
-                                     (modify-syntax-entry ?_ "w")
-                                     (modify-syntax-entry ?- "w")
-                                     (modify-syntax-entry ?> "w")))
+    
     (global-set-key [f9] 'cider-jack-in)
     (global-set-key [f8] 'prettify-symbols-mode)
 

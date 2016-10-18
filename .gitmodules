@@ -106,3 +106,9 @@
 [submodule "modules/github-browse-file"]
 	path = modules/github-browse-file
 	url = https://github.com/osener/github-browse-file
+[submodule "modules/yaml-mode"]
+	path = modules/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode
+[submodule "modules/inf-mongo"]
+	path = modules/inf-mongo
+	url = git@github.com:endofunky/inf-mongo

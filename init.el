@@ -22,3 +22,4 @@
 (load "config-comint.el")
 (load "config-lispy.el")
 (load "config-ruby.el")
+(load "config-mongo.el")

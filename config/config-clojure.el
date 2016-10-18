@@ -30,7 +30,13 @@
 
 (use-package cider
   :bind (:map evil-normal-state-map
-              (",cc" . cider-connect))
+              (",cc" . cider-connect)
+              ("s-SPC" . cider-jack-in)
+
+              ;; :map clojurescript-mode-map
+              ;; ("s-SPC" . cider-jack-in-clojurescript)
+              )
+
   :init
   (progn
 
@@ -137,8 +143,6 @@
     (define-key clojure-mode-map (kbd "s-i s-r"   ) 'cider-inspect-last-result)
     (define-key clojure-mode-map (kbd "s-i s-s"   ) 'cider-inspect-last-sexp)
 
-    (define-key clojurescript-mode-map (kbd "s-SPC") 'cider-jack-in-clojurescript)
-    (define-key clojure-mode-map       (kbd "s-SPC") 'cider-jack-in)
 
     ;;(evil-leader/set-key-for-mode 'clojure-mode "cnf" 'cider-browse-ns )
     ;;(evil-leader/set-key-for-mode 'clojure-mode "cna" 'cider-browse-ns-all )
@@ -153,7 +157,6 @@
     (setq cider-show-error-buffer nil)
 
     
-    (global-set-key [f9] 'cider-jack-in)
     (global-set-key [f8] 'prettify-symbols-mode)
 
     ;; cool Georgian chars:

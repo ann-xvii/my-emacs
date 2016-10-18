@@ -24,7 +24,8 @@
 (use-package cider-macroexpansion
 
   :bind (:map clojure-mode-map
-              ("s-m" . cider-macroexpand-1-inplace))
+              ;;("s-m" . cider-macroexpand-1-inplace)
+              )
   :config (message "Loaded cider macroexpansion"))
 
 (use-package cider
@@ -82,6 +83,7 @@
     (setq cider-auto-jump-to-error nil)
     (add-to-list 'same-window-buffer-names "*cider-repl localhost*")
     ;; FIXME use :bind
+    (define-key clojure-mode-map (kbd "s-m") 'cider-macroexpand-1-inplace)
     (define-key clojure-mode-map (kbd "s-e") 'cider-enlighten-mode)
     (define-key cider-inspector-mode-map (kbd "s-[") 'cider-inspector-pop)
     (define-key cider-inspector-mode-map (kbd "s-]") 'cider-inspector-push)
@@ -128,8 +130,8 @@
     (define-key clojure-mode-map (kbd "s-i s-r"   ) 'cider-inspect-last-result)
     (define-key clojure-mode-map (kbd "s-i s-s"   ) 'cider-inspect-last-sexp)
 
-    (define-key clojurescript-mode-map "s-SPC" 'cider-jack-in-clojurescript)
-    (define-key clojure-mode-map       "s-SPC" 'cider-jack-in)
+    (define-key clojurescript-mode-map (kbd "s-SPC") 'cider-jack-in-clojurescript)
+    (define-key clojure-mode-map       (kbd "s-SPC") 'cider-jack-in)
 
     ;;(evil-leader/set-key-for-mode 'clojure-mode "cnf" 'cider-browse-ns )
     ;;(evil-leader/set-key-for-mode 'clojure-mode "cna" 'cider-browse-ns-all )

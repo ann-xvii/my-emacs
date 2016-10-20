@@ -22,19 +22,16 @@
     ))
 
 (use-package cider-macroexpansion
-
-  :bind (:map clojure-mode-map
-              ;;("s-m" . cider-macroexpand-1-inplace)
-              )
-  :config (message "Loaded cider macroexpansion"))
+  :bind (:map evil-normal-state-map
+              ("s-m" . cider-macroexpand-1)))
 
 (use-package cider
   :bind (:map evil-normal-state-map
+              (",cj" . cider-jack-in)
               (",cc" . cider-connect)
-              ("s-SPC" . cider-jack-in)
 
               ;; :map clojurescript-mode-map
-              ;; ("s-SPC" . cider-jack-in-clojurescript)
+              ;; (",cj" . cider-jack-in-clojurescript)
               )
 
   :init
